@@ -48,7 +48,7 @@ API: GraphQL via gqlgen
 
 Orchestration: Docker SDK for Go
 
-Database: PostgreSQL with GORM
+Database: MySQL with GORM
 
 Auth: GitHub OAuth2 (golang.org/x/oauth2)
 

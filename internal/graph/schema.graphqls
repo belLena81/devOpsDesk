@@ -1,6 +1,10 @@
 type User {
   id: ID!
   email: String!
+  "GitHub username, if the account signs in with GitHub."
+  githubLogin: String
+  "Whether the account can sign in with email and password."
+  hasPassword: Boolean!
 }
 
 type AuthPayload {
@@ -18,6 +22,15 @@ input SignInInput {
   password: String!
 }
 
+type Query {
+  "The signed-in user, or null without a valid Authorization: Bearer token."
+  me: User
+}
+
+"""
+Email/password auth. For GitHub sign-in, send the browser to
+GET /auth/github/login; the callback returns the same token.
+"""
 type Mutation {
   signUp(input: SignUpInput!): AuthPayload!
   signIn(input: SignInInput!): AuthPayload!
